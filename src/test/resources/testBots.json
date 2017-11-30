@@ -1,0 +1,23 @@
+{
+  "testBot1": {
+    "login": "technopolisBot22",
+    "password": "technopolis16",
+    "profileId": "576030598023",
+    "firstName": "technopolisbot22",
+    "secondName": "technopolisbot22"
+  },
+  "testBot2": {
+    "login": "technopolisBot38",
+    "password": "technopolis16",
+    "profileId": "585773913868",
+    "firstName": "technopolisBot38",
+    "secondName": "technopolisBot38"
+  },
+  "testBot3": {
+    "login": "technopolisBot46",
+    "password": "technopolis16",
+    "profileId": "585773906701",
+    "firstName": "technopolisBot46",
+    "secondName": "technopolisBot46"
+  }
+}

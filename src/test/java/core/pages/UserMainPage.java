@@ -26,8 +26,7 @@ public class UserMainPage extends HelperBase {
 
     @Override
     void check() {
-        Assert.assertTrue(new WebDriverWait(driver, 10).until(d -> isElementPresent(USER_AVATAR)));
-        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(USER_AVATAR));
+        Assert.assertTrue(new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(USER_AVATAR)).isEnabled());
     }
 
     public void clickGroupsOnToolbar() {
@@ -43,13 +42,11 @@ public class UserMainPage extends HelperBase {
     public UserMainPage revokeRequestToFriend() {
         click(SECONDARY_DROPDOWN_BTN);
         click(REVOKE_FRIEND_REQUEST_BTN);
-
         return this;
     }
 
     public FriendsMainPage clickFriendsOnToolbar() {
         click(FRIENDS_ON_TOOLBAR);
-
         return new FriendsMainPage(driver);
     }
 

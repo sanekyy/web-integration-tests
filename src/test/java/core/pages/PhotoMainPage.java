@@ -30,10 +30,8 @@ public class PhotoMainPage extends HelperBase {
 
     @Override
     void check() {
-        Assert.assertTrue(new WebDriverWait(driver, 10).until(d -> isElementPresent(PHOTO)));
-        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(PHOTO));
-        Assert.assertTrue(new WebDriverWait(driver, 10).until(d -> isElementPresent(PHOTO_LAYER_INFO)));
-        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(PHOTO_LAYER_INFO));
+        Assert.assertTrue(new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(PHOTO)).isEnabled());
+        Assert.assertTrue(new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(PHOTO_LAYER_INFO)).isEnabled());
     }
 
     public PhotoMainPage typeComment(String comment) throws InterruptedException {
@@ -43,12 +41,12 @@ public class PhotoMainPage extends HelperBase {
                 .perform();
 
         type(comment, COMMENT_INPUT);
-        return this;
+        return new PhotoMainPage(driver);
     }
 
     public PhotoMainPage submitComment() {
         sendKeys(COMMENT_INPUT, Keys.ENTER);
-        return this;
+        return new PhotoMainPage(driver);
     }
 
     public boolean isCommentPresent(String comment, TestBot testBot) {

@@ -17,8 +17,7 @@ abstract class HelperBase {
     abstract void check();
 
     void type(String text, By by) {
-        Assert.assertTrue(new WebDriverWait(driver, 10).until(d -> isElementVisible(by)));
-        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(by));
+        Assert.assertTrue(new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(by)).isEnabled());
 
         driver.findElement(by).clear();
         driver.findElement(by).sendKeys(text);

@@ -21,22 +21,21 @@ public class SettingsMainPage extends HelperBase {
 
     @Override
     void check() {
-        Assert.assertTrue(new WebDriverWait(driver, 10).until(d -> isElementPresent(COMPACT_PROFILE)));
-        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(COMPACT_PROFILE));
+        Assert.assertTrue(new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(COMPACT_PROFILE)).isEnabled());
     }
 
-    public SettingsMainPage clickOnPrivacy(){
+    public SettingsMainPage clickOnPrivacy() {
         click(PRIVATE_BTN);
-        return this;
+        return new SettingsMainPage(driver);
     }
 
     public SettingsMainPage clickOnMessagesOnlyFriendsAndSave() throws InterruptedException {
-        if(!isElementSelected(PERSONAL_MESSAGES_ONLY_FRIEND_CHECKBOX)) {
+        if (!isElementSelected(PERSONAL_MESSAGES_ONLY_FRIEND_CHECKBOX)) {
             scrollWithOffset(PERSONAL_MESSAGES_ONLY_FRIEND_CHECKBOX, 0, -50);
             Thread.sleep(1000);
             click(PERSONAL_MESSAGES_ONLY_FRIEND_CHECKBOX);
             click(SAVE_BTN);
         }
-        return this;
+        return new SettingsMainPage(driver);
     }
 }

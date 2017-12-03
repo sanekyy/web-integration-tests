@@ -17,8 +17,7 @@ public class FriendRequestsMainPageNew extends HelperBase implements IFriendRequ
 
     @Override
     void check() {
-        Assert.assertTrue(new WebDriverWait(driver, 10).until(d -> isElementPresent(COMPACT_PROFILE)));
-        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(COMPACT_PROFILE));
+        Assert.assertTrue(new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(COMPACT_PROFILE)).isEnabled());
     }
 
     @Override

@@ -16,10 +16,8 @@ public class GroupMainPage extends HelperBase {
     }
 
     void check() {
-        new WebDriverWait(driver, 10).until(d -> isElementPresent(CREATE_NEW_GROUP));
-        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(CREATE_NEW_GROUP));
-        new WebDriverWait(driver, 10).until(d -> isElementPresent(COMPACT_PROFILE_IMG));
-        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(COMPACT_PROFILE_IMG));
+        Assert.assertTrue(new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(CREATE_NEW_GROUP)).isEnabled());
+        Assert.assertTrue(new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(COMPACT_PROFILE_IMG)).isEnabled());
     }
 
     public void clickCreateButton() {

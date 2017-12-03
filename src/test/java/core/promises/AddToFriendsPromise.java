@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.log4testng.Logger;
 
 public class AddToFriendsPromise {
@@ -17,7 +18,7 @@ public class AddToFriendsPromise {
     }
 
     public void andRequestSend() {
-        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(ACTION_MENU_FRIENDSHIP_REQUEST_SENT));
+        Assert.assertTrue(new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(ACTION_MENU_FRIENDSHIP_REQUEST_SENT)).isEnabled());
         LOGGER.info("Запрос дружить отправлен");
     }
 }

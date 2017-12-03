@@ -19,13 +19,12 @@ public class SearchMainPage extends HelperBase {
 
     @Override
     void check() {
-        Assert.assertTrue(new WebDriverWait(driver, 10).until(d -> isElementPresent(PEOPLE_TAB)));
-        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(PEOPLE_TAB));
+        Assert.assertTrue(new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(PEOPLE_TAB)).isEnabled());
     }
 
     public SearchMainPage clickPeopleTab() {
         click(PEOPLE_TAB);
-        return this;
+        return new SearchMainPage(driver);
     }
 
     public AddToFriendsPromise sendRequestToFriend(String fullName) throws InterruptedException {
@@ -39,7 +38,7 @@ public class SearchMainPage extends HelperBase {
 
     public SearchMainPage clickSearchById() {
         click(SEARCH_BY_ID);
-        return this;
+        return new SearchMainPage(driver);
     }
 
     public UserMainPage openUserPage(String fullName) throws InterruptedException {

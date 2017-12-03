@@ -10,7 +10,7 @@ import org.testng.Assert;
 
 public class AddToFriendTest extends TestBase {
 
-    TestBot testBot1 = ResourceLoader.getTestBot("testBot1"),
+    private TestBot testBot1 = ResourceLoader.getTestBot("testBot1"),
             testBot2 = ResourceLoader.getTestBot("testBot2");
 
     @Test
